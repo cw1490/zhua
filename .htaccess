@@ -1,0 +1,11 @@
+RewriteEngine on
+RewriteBase /
+#RewriteRule ^getyiqifa.php(.*?)$ index.php/cpsapi/yiqifa/index/$1 [L]
+#RewriteRule ^_(.*?)$ index.php/dispatcher/goto/index/$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+#RewriteCond %{http_host} !^uping360.com [NC]
+#RewriteRule ^(.*)$ [url]http://www.uping360.com/[/url]$1 [R=301.L]
+RewriteCond %{HTTP_HOST} ^uping360.com [NC]
+RewriteRule ^(.*)$ http://www.uping360.com/$1 [L,R=301]
